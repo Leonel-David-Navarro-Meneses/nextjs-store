@@ -1,7 +1,9 @@
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
+import { Header } from "app/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,21 +17,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('hola mundo layout')
   return (
     <html lang="en">
+      <Header />
       <body className={inter.className}>
-        <header>
-          <nav>
-            <ul>
-              <Link href="/">
-              <li>Home</li>
-              </Link>
-              <Link href="/store">
-              <li>Store</li>
-              </Link>    
-            </ul>
-          </nav>
-        </header>
+        
         {children}
         </body>
     </html>
