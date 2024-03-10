@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import styles from './MainProducts.module.sass'
 
-const getProduts = async () => {
+const getProducts = async () => {
     try {
         const response = await fetch (`${process.env.SHOPIFY_HOSTNAME}/admin/api/2024-01/products.json`,{
-            headers: {
+            headers: new Headers({
                 'X-Shopify-Access-Token': process.env.SHOPIFY_API_KEY || ""
-            }
+            })
         })
         const {products} = await response.json()
         return products
@@ -34,3 +34,4 @@ export const MainProducts = async () => {
             </div>
         </section>
     )
+}    
