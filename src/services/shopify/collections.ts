@@ -1,4 +1,4 @@
-import { env } from "app/config/env"
+import { env } from "app/config/evn"
 import { shopifyUrls } from "./urls"
 
 export const getCollections = async () => {

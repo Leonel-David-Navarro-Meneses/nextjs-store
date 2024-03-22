@@ -1,7 +1,7 @@
-import { env } from "app/config/env"
+import { env } from "app/config/evn"
 import { shopifyUrls } from "./urls"
 
-export const getProducts = async (id?: string): Promise<ProductType[]> => {
+export const getProducts = async (id?: string) => {
   try {
     const apiUrl = id ? `${shopifyUrls.products.all}?ids=${id}` : shopifyUrls.products.all
     const response = await fetch(apiUrl, {
@@ -28,7 +28,6 @@ export const getProducts = async (id?: string): Promise<ProductType[]> => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 export const getMainProducts = async () => {
@@ -37,11 +36,9 @@ export const getMainProducts = async () => {
       'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
     }),
     cache: 'force-cache',
-    next:{
+    next: {
       tags: ['main-products']
-
     }
-
   })
 
   const {products} = await response.json()
