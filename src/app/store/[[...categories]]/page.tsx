@@ -1,5 +1,5 @@
 import { ProductsWrapper } from "app/components/Store/ProductsWrapper"
-import { getProducts } from "app/services/shopify"
+import { getProducts } from "app/services/shopify/products"
 
 
 interface CategoryProps{
@@ -16,5 +16,5 @@ export default async function Category(props: CategoryProps){
     // throw new Error('Error:BOOM!')
     return(
         <ProductsWrapper products={products} />
-    )
+    );
 }
