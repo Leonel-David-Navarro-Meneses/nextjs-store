@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { cookies } from 'next/headers'
 
 export const Header = () => {
-//console.log('hola mundo header')
+  const cookiesStore = cookies()
+  const token = cookiesStore.get('accessToken')?.value
 return( <header>
           <nav>
             <ul>
@@ -15,6 +17,7 @@ return( <header>
     <li>Test</li>
     </Link>
             </ul>
+            {token ? (<p>Hola!</p>) : (<Link href="/login">Login</Link>)}
           </nav>
         </header>
 )
